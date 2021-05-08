@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { SideBar } from './components/SideBar';
 import { Content } from './components/Content';
@@ -6,7 +6,6 @@ import { Content } from './components/Content';
 import './styles/global.scss';
 
 import { api } from './services/api';
-
 
 interface GenreResponseProps {
   id: number;
@@ -31,7 +30,7 @@ export function App() {
 
   const [movies, setMovies] = useState<MovieProps[]>([]);
   const [selectedGenre, setSelectedGenre] = useState<GenreResponseProps>({} as GenreResponseProps);
-  
+
   const [genres, setGenres] = useState<GenreResponseProps[]>([]);
 
   useEffect(() => {
@@ -57,7 +56,7 @@ export function App() {
   return (
     <div style={{ display: 'flex', flexDirection: 'row' }}>
 
-      <SideBar genres={genres} onClickCategory={handleClickButton} selectedGenreId={selectedGenreId}/>
+      <SideBar genres={genres} onClickCategory={handleClickButton} selectedGenreId={selectedGenreId} />
 
       <Content movies={movies} genre={selectedGenre} />
 
